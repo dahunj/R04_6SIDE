@@ -5842,15 +5842,11 @@ BOOL CSequenceMain::Btm2Picker_Run()
 
 				bSave = FALSE;
 				m_tBtm2PickLoop.Takt_Save(10, 10);
-				if(gData.bR04A || gData.bR04C)
+				if(gData.bR04A || gData.bR04C || gData.bR04B)
 				{
 					g_objCommon.Move_Position(AX_BTM2_PICKER_P1, 0);	// Inspection Pitch
 					g_objCommon.Move_Position(AX_BTM2_PICKER_P2, 0);	// Inspection Pitch
-				}
-				else if (gData.bR04B) {
-					g_objCommon.Move_Position(AX_BTM2_PICKER_P1, 1);	// Tray Pitch
-					g_objCommon.Move_Position(AX_BTM2_PICKER_P2, 1);	// Tray Pitch
-				}
+				}				
 				
 				g_objCommon.Move_Position(AX_BTM2_PICKER_Z, 2);
 				g_objCommon.Set_Btm2PickerDown();
@@ -5876,8 +5872,7 @@ BOOL CSequenceMain::Btm2Picker_Run()
 
 	case 15:	// X Move to Pitch & Inspection End Check
 		if (g_objAJinAXL.Is_MoveDone(AX_BTM2_PICKER_X, dB2pX)  && g_objCommon.Get_Btm2PickerDown(0) 
-			&& (g_objCommon.Check_Position(AX_BTM2_PICKER_P1, 0) || (gData.bR04B && g_objCommon.Check_Position(AX_BTM2_PICKER_P1, 1))) 
-			&& ( g_objCommon.Check_Position(AX_BTM2_PICKER_P2, 0) || (gData.bR04B && g_objCommon.Check_Position(AX_BTM2_PICKER_P2, 1)))) 
+			&& g_objCommon.Check_Position(AX_BTM2_PICKER_P1, 0) && g_objCommon.Check_Position(AX_BTM2_PICKER_P2, 0)) 
 		{
 			//nB2pScanNo++;
 			if (gData.bReload[4]) {
