@@ -5882,7 +5882,7 @@ BOOL CSequenceMain::Btm2Picker_Run()
 				m_tBtm2PickLoop.Takt_Start();
 				nB2pScanNo = 0;
 				//g_objCommon.Move_Position(AX_BTM2_PICKER_Z, 0);
-				if(gData.bR04A || gData.bR04C)
+				if(gData.bR04A || gData.bR04C || gData.bR04B)
 				{
 					g_objCommon.Move_Position(AX_BTM2_PICKER_P1, 1);	// Tray Pitch
 					g_objCommon.Move_Position(AX_BTM2_PICKER_P2, 1);	// Tray Pitch
