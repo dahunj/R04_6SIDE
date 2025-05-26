@@ -112,9 +112,9 @@ public:
 	BOOL Get_AnglePortMasterSlaveOut();
 
 	// 4. Btm1 Picker I/O 함수
-// 	void Set_Btm1PickerUp(int nSub);
-// 	BOOL Get_Btm1PickerUp(int nSub);
- 	void Set_Btm1PickerDown();		// ALL Down
+ 	//void Set_Btm1PickerUp(int nSub);
+ 	//BOOL Get_Btm1PickerUp(int nSub);
+ 	void Set_Btm1PickerDown(int nSub);		// ALL Down
  	BOOL Get_Btm1PickerDown(int nSub);
 	void Set_Btm1PickerUp24();		// 2번, 4번
 	BOOL Get_Btm1PickerUp24();

@@ -592,7 +592,7 @@ BOOL CSequenceInit::Initial_Btm1Picker()
 		break;
 	case 14:	// Picker Z & Btm1 Shift Y Move to Ready Up Position
 #ifdef EDITION_2ND
-		if (g_objCommon.Get_Btm1PickerDown(0))
+		if (g_objCommon.Get_Btm1PickerDown(1))
 #else
  		if (m_tiBtm1PickLoop.Waiting_Time(1500))
 #endif

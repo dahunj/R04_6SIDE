@@ -3374,14 +3374,17 @@ BOOL CSequenceMain::Btm1Picker_Run()
 				g_objCommon.Move_Position(AX_BTM1_PICKER_Z, 1);	// Load Down
 				g_objCommon.Set_InfoBtm1PickerVacOn(INFO_STAGE, nB1pRow, nB1pWorkTray, nB1pTrayPosY);
 				//g_objCommon.Set_InfoBtm1PickerDown(INFO_STAGE, nB1pRow, nB1pWorkTray, nB1pTrayPosY);	// Picker 고정으로 사용.
-				g_objCommon.Set_Btm1PickerDown();
+				if(nB1pRow ==0) g_objCommon.Set_Btm1PickerDown(0);
+				else g_objCommon.Set_Btm1PickerDown(1);
 
 				m_nBtm1PickCase++; m_tBtm1PickLoop.Set_LoopTime(5000);
 			}
 		}
 		break;
 	case 4:		// 정보전달(Tray->Picker) & Btm1 Vacuum On
-		if (g_objCommon.Check_Position(AX_BTM1_PICKER_Z, 1) && g_objCommon.Get_Btm1PickerDown(0)) {
+		if (g_objCommon.Check_Position(AX_BTM1_PICKER_Z, 1) && ( g_objCommon.Get_Btm1PickerDown(1) 
+			|| (nB1pRow ==0 && g_objCommon.Get_Btm1PickerDown(0)))) 
+		{
 			int nTrayX = 0, nBtmX = 0;
 			nBtmX = 5 * nB1pRow;
 
@@ -3683,7 +3686,7 @@ BOOL CSequenceMain::Btm1Picker_Run()
 				(nB1pInspStageNo == 3 && m_pDX05->iInspectStage3Up && !m_pDX05->iInspectStage3Down && m_pDX05->iInspectStage3Fwd && !m_pDX05->iInspectStage3Bwd)) {
 
 				//g_objCommon.Set_InfoBtm1PickerDown(INFO_PICK);	// Picker 고정으로 사용.
-				g_objCommon.Set_Btm1PickerDown();
+				g_objCommon.Set_Btm1PickerDown(1);
 
 				g_objCommon.Move_Position(AX_BTM1_PICKER_Z, 3);	//Unload Down
 				g_objCommon.Set_InfoInspectVacOn(nB1pInspStageNo);
@@ -3692,7 +3695,7 @@ BOOL CSequenceMain::Btm1Picker_Run()
 		}
 		break;
 	case 23:	// 정보전달, Btm1 Picker Vac Off
-		if (g_objCommon.Check_Position(AX_BTM1_PICKER_Z, 3) && g_objCommon.Get_Btm1PickerDown(0)) {
+		if (g_objCommon.Check_Position(AX_BTM1_PICKER_Z, 3) && g_objCommon.Get_Btm1PickerDown(1)) {
 			for (int i = 0; i < 10; i++) 
 			{
 				gData.InfoInspect[nB1pInspStageNo-1][i] = gData.InfoBtm1Pick[i]; gData.InfoBtm1Pick[i] = 0;

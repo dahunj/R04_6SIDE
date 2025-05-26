@@ -73,9 +73,9 @@
 
 //SIMulation 모드 일떄 AJIN, BARCODE, LOADCELL 등은 주석처리하고 SIMULATION_MODE는 주석지운다 
 
-#define AJIN_BOARD_USE
-#define LOT_BARCODE_USE
-//#define SIMULATION_MODE
+//#define AJIN_BOARD_USE
+//#define LOT_BARCODE_USE
+#define SIMULATION_MODE
 
 // 2~5호기 옵션
 #define EDITION_2ND		// 2~5호기

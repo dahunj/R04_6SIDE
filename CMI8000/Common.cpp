@@ -648,62 +648,85 @@ BOOL CCommon::Get_AnglePortMasterSlaveOut()
 	return TRUE;
 }
 
-// 4. Btm1 Picker I/O 함수
-// void CCommon::Set_Btm1PickerUp(int nSub)
-// {
-// 	DY_DATA_03 *pDY03 = g_objAJinAXL.Get_pDY03();
-// 	if (nSub == 0 || nSub ==  1) pDY03->oBtm1PickerDown01 = FALSE;
-// 	if (nSub == 0 || nSub ==  5) pDY03->oBtm1PickerDown05 = FALSE;
-// 	if (nSub == 0 || nSub ==  6) pDY03->oBtm1PickerDown06 = FALSE;
-// 	if (nSub == 0 || nSub == 10) pDY03->oBtm1PickerDown10 = FALSE;
-// 	g_objAJinAXL.Write_Output(3);
-// }
-// 
-// BOOL CCommon::Get_Btm1PickerUp(int nSub)
-// {
-// 	DX_DATA_03 *pDX03 = g_objAJinAXL.Get_pDX03();
-// 	if (nSub == 0) {
-// 		if (pDX03->iBtm1PickerUp01 && !pDX03->iBtm1PickerDown01 &&
-// 			pDX03->iBtm1PickerUp02 && !pDX03->iBtm1PickerDown02 &&
-// 			pDX03->iBtm1PickerUp03 && !pDX03->iBtm1PickerDown03 &&
-// 			pDX03->iBtm1PickerUp04 && !pDX03->iBtm1PickerDown04 &&
-// 			pDX03->iBtm1PickerUp05 && !pDX03->iBtm1PickerDown05 &&
-// 			pDX03->iBtm1PickerUp06 && !pDX03->iBtm1PickerDown06 &&
-// 			pDX03->iBtm1PickerUp07 && !pDX03->iBtm1PickerDown07 &&
-// 			pDX03->iBtm1PickerUp08 && !pDX03->iBtm1PickerDown08 &&
-// 			pDX03->iBtm1PickerUp09 && !pDX03->iBtm1PickerDown09 &&
-// 			pDX03->iBtm1PickerUp10 && !pDX03->iBtm1PickerDown10) return TRUE;
-// 	}
-// 	else if (nSub ==  1 && pDX03->iBtm1PickerUp01 && !pDX03->iBtm1PickerDown01) return TRUE;
-// 	else if (nSub ==  2 && pDX03->iBtm1PickerUp02 && !pDX03->iBtm1PickerDown02) return TRUE;
-// 	else if (nSub ==  3 && pDX03->iBtm1PickerUp03 && !pDX03->iBtm1PickerDown03) return TRUE;
-// 	else if (nSub ==  4 && pDX03->iBtm1PickerUp04 && !pDX03->iBtm1PickerDown04) return TRUE;
-// 	else if (nSub ==  5 && pDX03->iBtm1PickerUp05 && !pDX03->iBtm1PickerDown05) return TRUE;
-// 	else if (nSub ==  6 && pDX03->iBtm1PickerUp06 && !pDX03->iBtm1PickerDown06) return TRUE;
-// 	else if (nSub ==  7 && pDX03->iBtm1PickerUp07 && !pDX03->iBtm1PickerDown07) return TRUE;
-// 	else if (nSub ==  8 && pDX03->iBtm1PickerUp08 && !pDX03->iBtm1PickerDown08) return TRUE;
-// 	else if (nSub ==  9 && pDX03->iBtm1PickerUp09 && !pDX03->iBtm1PickerDown09) return TRUE;
-// 	else if (nSub == 10 && pDX03->iBtm1PickerUp10 && !pDX03->iBtm1PickerDown10) return TRUE;
-// 	return FALSE;
-// }
-// 
-void CCommon::Set_Btm1PickerDown()
+////4. Btm1 Picker I/O 함수
+//void CCommon::Set_Btm1PickerUp(int nSub)
+//{
+//	DY_DATA_03 *pDY03 = g_objAJinAXL.Get_pDY03();
+//	DY_DATA_04 *pDY04 = g_objAJinAXL.Get_pDY04();
+//	if (nSub == 0 || nSub ==  6) pDY04->oBtm1PickerDown06 = FALSE;
+//	if (nSub == 0 || nSub ==  7) pDY04->oBtm1PickerDown07 = FALSE;
+//	if (nSub == 0 || nSub ==  8) pDY04->oBtm1PickerDown08 = FALSE;
+//	if (nSub == 0 || nSub ==  9) pDY04->oBtm1PickerDown09 = FALSE;
+//	if (nSub == 0 || nSub ==  10) pDY04->oBtm1PickerDown10 = FALSE;
+//
+//	if (nSub == 1 || nSub ==  1) pDY03->oBtm1PickerDown01 = FALSE;
+//	if (nSub == 1 || nSub ==  2) pDY03->oBtm1PickerDown02 = FALSE;
+//	if (nSub == 1 || nSub ==  3) pDY03->oBtm1PickerDown03 = FALSE;
+//	if (nSub == 1 || nSub ==  4) pDY03->oBtm1PickerDown04 = FALSE;
+//	if (nSub == 1 || nSub ==  5) pDY03->oBtm1PickerDown05 = FALSE;
+//	
+//	g_objAJinAXL.Write_Output(3);
+//	g_objAJinAXL.Write_Output(4);
+//}
+//
+//BOOL CCommon::Get_Btm1PickerUp(int nSub)
+//{
+//	DX_DATA_03 *pDX03 = g_objAJinAXL.Get_pDX03();
+//	if (nSub == 0) {
+//		if (pDX03->iBtm1PickerUp01 && !pDX03->iBtm1PickerDown01 &&
+//			pDX03->iBtm1PickerUp02 && !pDX03->iBtm1PickerDown02 &&
+//			pDX03->iBtm1PickerUp03 && !pDX03->iBtm1PickerDown03 &&
+//			pDX03->iBtm1PickerUp04 && !pDX03->iBtm1PickerDown04 &&
+//			pDX03->iBtm1PickerUp05 && !pDX03->iBtm1PickerDown05 &&
+//			pDX03->iBtm1PickerUp06 && !pDX03->iBtm1PickerDown06 &&
+//			pDX03->iBtm1PickerUp07 && !pDX03->iBtm1PickerDown07 &&
+//			pDX03->iBtm1PickerUp08 && !pDX03->iBtm1PickerDown08 &&
+//			pDX03->iBtm1PickerUp09 && !pDX03->iBtm1PickerDown09 &&
+//			pDX03->iBtm1PickerUp10 && !pDX03->iBtm1PickerDown10) return TRUE;
+//	}
+//	else if (nSub ==  1 && pDX03->iBtm1PickerUp01 && !pDX03->iBtm1PickerDown01) return TRUE;
+//	else if (nSub ==  2 && pDX03->iBtm1PickerUp02 && !pDX03->iBtm1PickerDown02) return TRUE;
+//	else if (nSub ==  3 && pDX03->iBtm1PickerUp03 && !pDX03->iBtm1PickerDown03) return TRUE;
+//	else if (nSub ==  4 && pDX03->iBtm1PickerUp04 && !pDX03->iBtm1PickerDown04) return TRUE;
+//	else if (nSub ==  5 && pDX03->iBtm1PickerUp05 && !pDX03->iBtm1PickerDown05) return TRUE;
+//	else if (nSub ==  6 && pDX03->iBtm1PickerUp06 && !pDX03->iBtm1PickerDown06) return TRUE;
+//	else if (nSub ==  7 && pDX03->iBtm1PickerUp07 && !pDX03->iBtm1PickerDown07) return TRUE;
+//	else if (nSub ==  8 && pDX03->iBtm1PickerUp08 && !pDX03->iBtm1PickerDown08) return TRUE;
+//	else if (nSub ==  9 && pDX03->iBtm1PickerUp09 && !pDX03->iBtm1PickerDown09) return TRUE;
+//	else if (nSub == 10 && pDX03->iBtm1PickerUp10 && !pDX03->iBtm1PickerDown10) return TRUE;
+//	return FALSE;
+//}
+
+void CCommon::Set_Btm1PickerDown(int nSub)
 {
  	DY_DATA_03 *pDY03 = g_objAJinAXL.Get_pDY03();
 	DY_DATA_04 *pDY04 = g_objAJinAXL.Get_pDY04();
 
-#ifdef EDITION_2ND
-	pDY03->oBtm1PickerDown01 = pDY04->oBtm1PickerDown06 = TRUE;
-	pDY03->oBtm1PickerDown02 = pDY04->oBtm1PickerDown07 = TRUE;
-	pDY03->oBtm1PickerDown03 = pDY04->oBtm1PickerDown08 = TRUE;
-	pDY03->oBtm1PickerDown04 = pDY04->oBtm1PickerDown09 = TRUE;
-	pDY03->oBtm1PickerDown05 = pDY04->oBtm1PickerDown10 = (gData.bR04C ? FALSE : TRUE);
-#else
-// 	pDY03->oBtm1PickerDown01 = TRUE; pDY03->oBtm1PickerDown05 = (gData.bR04C ? FALSE : TRUE);
-// 	pDY03->oBtm1PickerDown06 = TRUE; pDY03->oBtm1PickerDown10 = (gData.bR04C ? FALSE : TRUE);
-	pDY03->oBtm1PickerDown01 = TRUE; pDY03->oBtm1PickerDown02 = TRUE;
-	pDY03->oBtm1PickerDown06 = TRUE; pDY03->oBtm1PickerDown07 = TRUE;
-#endif
+	if (nSub == 0) 
+	{
+		pDY03->oBtm1PickerDown01 = TRUE;
+		pDY03->oBtm1PickerDown02 = TRUE; 
+		pDY03->oBtm1PickerDown03 = TRUE;
+		pDY03->oBtm1PickerDown04 = TRUE;
+		pDY03->oBtm1PickerDown05 = (gData.bR04C ? FALSE : TRUE);
+
+		pDY04->oBtm1PickerDown06 = FALSE;
+		pDY04->oBtm1PickerDown07 = FALSE;
+		pDY04->oBtm1PickerDown08 = FALSE;
+		pDY04->oBtm1PickerDown09 = FALSE;
+		pDY04->oBtm1PickerDown10 = FALSE;
+
+	}
+	else
+	{
+
+		pDY03->oBtm1PickerDown01 = pDY04->oBtm1PickerDown06 = TRUE;
+		pDY03->oBtm1PickerDown02 = pDY04->oBtm1PickerDown07 = TRUE;
+		pDY03->oBtm1PickerDown03 = pDY04->oBtm1PickerDown08 = TRUE;
+		pDY03->oBtm1PickerDown04 = pDY04->oBtm1PickerDown09 = TRUE;
+		pDY03->oBtm1PickerDown05 = pDY04->oBtm1PickerDown10 = (gData.bR04C ? FALSE : TRUE);
+	}
+
 	g_objAJinAXL.Write_Output(3);
 	g_objAJinAXL.Write_Output(4);
 }
@@ -713,7 +736,41 @@ BOOL CCommon::Get_Btm1PickerDown(int nSub)
 #ifdef EDITION_2ND
 	DX_DATA_03 *pDX03 = g_objAJinAXL.Get_pDX03();
 	DX_DATA_04 *pDX04 = g_objAJinAXL.Get_pDX04();
-	if (nSub == 0) {
+
+	if (nSub == 0)
+	{
+		if (gData.bR04C) 
+		{
+			if (!pDX03->iBtm1PickerUp01 && pDX03->iBtm1PickerDown01 &&
+				!pDX03->iBtm1PickerUp02 && pDX03->iBtm1PickerDown02 &&
+				!pDX03->iBtm1PickerUp03 && pDX03->iBtm1PickerDown03 &&
+				!pDX03->iBtm1PickerUp04 && pDX03->iBtm1PickerDown04 &&
+				pDX03->iBtm1PickerUp05 && !pDX03->iBtm1PickerDown05 &&
+				pDX04->iBtm1PickerUp06 && !pDX04->iBtm1PickerDown06 &&
+				pDX04->iBtm1PickerUp07 && !pDX04->iBtm1PickerDown07 &&
+				pDX04->iBtm1PickerUp08 && !pDX04->iBtm1PickerDown08 &&
+				pDX04->iBtm1PickerUp09 && !pDX04->iBtm1PickerDown09 &&
+				pDX04->iBtm1PickerUp10 && !pDX04->iBtm1PickerDown10) return TRUE;
+		} 
+		else 
+		{
+			if (!pDX03->iBtm1PickerUp01 && pDX03->iBtm1PickerDown01 &&
+				!pDX03->iBtm1PickerUp02 && pDX03->iBtm1PickerDown02 &&
+				!pDX03->iBtm1PickerUp03 && pDX03->iBtm1PickerDown03 &&
+				!pDX03->iBtm1PickerUp04 && pDX03->iBtm1PickerDown04 &&
+				!pDX03->iBtm1PickerUp05 && pDX03->iBtm1PickerDown05 &&
+				pDX04->iBtm1PickerUp06 && !pDX04->iBtm1PickerDown06 &&
+				pDX04->iBtm1PickerUp07 && !pDX04->iBtm1PickerDown07 &&
+				pDX04->iBtm1PickerUp08 && !pDX04->iBtm1PickerDown08 &&
+				pDX04->iBtm1PickerUp09 && !pDX04->iBtm1PickerDown09 &&
+				pDX04->iBtm1PickerUp10 && !pDX04->iBtm1PickerDown10) return TRUE;
+		}
+
+
+		
+	}
+
+	if (nSub == 1) {
 		if (gData.bR04C) {
 			if (!pDX03->iBtm1PickerUp01 && pDX03->iBtm1PickerDown01 &&
 				!pDX03->iBtm1PickerUp02 && pDX03->iBtm1PickerDown02 &&
